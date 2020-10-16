@@ -1,3 +1,8 @@
+"""
+    THIS CODE IS BASICALLY USELESS NOW SINCE I'VE LEARNED THE .LOWER STATEMENT OMG REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+    See 10_2 for a LOT shorter code and SIMPLER code. this one is HELL
+"""
+
 alphabets_lower = "abcdefghijklmnopqrstuvwxyz"
 alphabets_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 total = list(zip(alphabets_upper, alphabets_lower))

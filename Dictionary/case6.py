@@ -8,7 +8,7 @@ def rot_thirteen(input):
         for values in key.keys():
             if item==values:
                 new_text += key[item]
-            if item in string.punctuation or item in additional:
+            if item in string.punctuation or item in string.digits or item in additional:
                 new_text += item
                 break
     return new_text

@@ -12,9 +12,11 @@ def hapax_legomenon(file):
     for impostor in punctuation:
         if impostor in wordlist:
             wordlist = wordlist.replace(impostor, ' ')
+        else: pass
     for impostor2 in string.digits:
         if impostor2 in wordlist:
             wordlist = wordlist.replace(impostor2, ' ')
+        else: pass
     for items in wordlist.lower().split():
         for ah in items.split(' '):
             word_count.setdefault(ah, 0)
@@ -22,8 +24,7 @@ def hapax_legomenon(file):
     for words in word_count:
         if word_count[words] == 1:
             new_words.append(words)
-        else:
-            pass
+        else: pass
     print("\nTotal words count: " + str(len(word_count)))
     print("Hapax Legomena count: " + str(len(new_words)))
     print("Hapax Legomena percentage: " + str(round((len(new_words) / len(word_count) * 100), 2)) + "%")

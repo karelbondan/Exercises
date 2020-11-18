@@ -3,7 +3,7 @@ And there are more things that doesn't exist in string.punctuations such as left
 n.b. This solution may not be accurate."""
 import string
 
-punctuation = '!"#$%&()*+,-—./:;<=>?@[\]^_`{|}~’“”'
+punctuation = '!"#$%&()*+,-—./:;<=>?@[\]^_`{|}~’“”‘'
 file = open('callofthewild.txt', 'r', encoding='utf8')
 def hapax_legomenon(file):
     word_count = {}

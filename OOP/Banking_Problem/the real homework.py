@@ -2,8 +2,8 @@ import catatan
 
 acc = catatan
 accounts = {}
-with open("accounts_3.csv", 'r') as f: file = f.read()
-file2 = open('accounts_3.csv', 'w')
+with open("accounts_2.csv", 'r') as f: file = f.read()
+file2 = open('accounts_2.csv', 'w')
 data = file.split("\n")
 test = []
 passbal = []

@@ -24,8 +24,9 @@ def append_accounts():
     exit()
 
 def main():
+    customers = []
+    pepepopo = acc.Bank("BCA", customers)
     name = ""
-    your_account = acc.Account()
     print("\n=== Welcome to The National Bank of PeePeePooPoo ===\n")
     while True:
         try:
@@ -52,14 +53,14 @@ def main():
                         pin_check = acc.pin_error(pin)
                         if pin_check == 0: break
                         else: pass
-                    acc.Bank().add_customer(firstname, lastname.upper())
+                    pepepopo.add_customer(firstname, lastname.upper())
                     print(f'\n- Registration Completed -\n'
-                          f'Welcome to National Bank of PeePeePooPoo, {acc.Customer.firstname} {acc.Customer.lastname}')
-                    input_2 = int(input(f'{acc.Customer().set_account()}, How many do you want to deposit?\n'
+                          f'Welcome to National Bank of PeePeePooPoo, {pepepopo.get_customer(0).get_fname()} {pepepopo.get_customer(0).get_lname()}')
+                    input_2 = int(input(f'Your initial balance is Rp {pepepopo.get_customer(0).get_account().get_balance()}, How many do you want to deposit?\n'
                                         f'Amount: Rp '))
-                    your_account.deposit(input_2)
-                    print(f'\nThe balance for {name}\'s account is now Rp {your_account.get_balance()}. Thank you for using our Service.\n=== PeePeePooPoo National Bank ===')
-                    passbal.extend((pin, your_account.get_balance()))
+                    pepepopo.get_customer(0).get_account().deposit(input_2)
+                    print(f'\nThe balance for {name}\'s account is now Rp {pepepopo.get_customer(0).get_account().get_balance()}. Thank you for using our Service.\n=== PeePeePooPoo National Bank ===')
+                    passbal.extend((pin, pepepopo.get_customer(0).get_account().get_balance()))
                     accounts.update({name: passbal})
                     append_accounts()
                 break
@@ -103,16 +104,16 @@ def access_account(firstname='default', lastname='default'):
                                 while True:
                                     input_6 = int(input("Your amount of money: Rp "))
                                     if existing_account.deposit(input_6) == True:
-                                        print(f'Your balance is now Rp {existing_account.get_balance()}')
+                                        print(f'\nYour balance is now Rp {existing_account.get_balance()}')
                                         break
                                     else: print("Are you joking or something? There's no such thing as a negative amount of money.")
                             elif input_5 == 2:
                                 while True:
                                     input_6 = int(input("Your amount of money: Rp "))
                                     if existing_account.withdraw(input_6) == True:
-                                        print(f'Your balance is now Rp {existing_account.get_balance()}')
+                                        print(f'\nYour balance is now Rp {existing_account.get_balance()}')
                                         break
-                                    else: print("Your entered amount exceeded your current balance.")
+                                    else: print("Your entered amount exceeded your current balance/you probably entered a negative amount. Bruh.")
                             elif input_5 == 3:
                                 print(f'\n{name}\'s balance is Rp {existing_account.get_balance()}')
                                 break
@@ -120,7 +121,7 @@ def access_account(firstname='default', lastname='default'):
                         else: print("Wrong pin. Try again.")
                         break
                 elif input_7 == 2:
-                    print("\nThank you for using our service.\n=== National Bank ===")
+                    print("\nThank you for using our service.\n=== PeePeePooPoo National Bank===")
                     break
                 else: print("Invalid input. Please enter a number that corresponds to the menu.")
             passbal.extend((accounts.get(name)[0], existing_account.get_balance()))
@@ -131,5 +132,4 @@ def access_account(firstname='default', lastname='default'):
         print("\nProgram error. Your balance did not change.")
         print("Something unexpected happened. Program has been terminated to prevent data corruption.\n=== PeePeePooPoo National Bank ===")
         append_accounts()
-
 main()
